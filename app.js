@@ -7,14 +7,15 @@ let loader = document.querySelector('.loader');
 let qui = document.querySelector('.quiz');
 let buttons = document.querySelectorAll('.button');
 let progress = document.getElementById("progress");
-
-
+let score = document.getElementById("score");
+let scoreDiv = document.querySelector(".scoreDiv");
 
 let api =
-    "https://opentdb.com/api.php?amount=50&category=9&difficulty=medium&type=multiple";
+"https://opentdb.com/api.php?amount=50&category=9&difficulty=medium&type=multiple";
 
-    let arr = [];
-    let nextQuestion = 0;
+let arr = [];
+let nextQuestion = 0;
+let answerCount = 0;
 fetch(api)
     .then((response) => response.json())
     .then((data) => {
@@ -37,7 +38,6 @@ fetch(api)
         option4.innerHTML = arr[nextQuestion].options[3];
         loader.style.display = "none";
         qui.style.display = "flex";
-        console.log(arr[nextQuestion]);
     });
 
         for (const button of buttons) {
@@ -47,6 +47,7 @@ fetch(api)
             if (button.innerText === arr[nextQuestion].answer) {
                 button.style.backgroundColor = "green";
                 button.style.color = "white";
+                answerCount++;
                 setTimeout(() => {
                     button.style.backgroundColor = "#57636f";
                 button.style.color = "#ffffff";
@@ -68,6 +69,13 @@ fetch(api)
             option2.innerHTML = arr[nextQuestion].options[1];
             option3.innerHTML = arr[nextQuestion].options[2];
             option4.innerHTML = arr[nextQuestion].options[3];
+            }, 2000);
+            setTimeout(() => {
+                if (nextQuestion === 9) {
+                    qui.style.display = "none";
+                    scoreDiv.style.display = "grid";
+                    score.innerText = `${answerCount}/10`;
+                }
             }, 2000);
         };
     }

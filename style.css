@@ -49,6 +49,7 @@ button {
     border: none;
 }
 
+
 .quiz {
     width: 80%;
     height: 85%;
@@ -95,6 +96,16 @@ button {
     border-bottom: 10px dotted rgb(197, 197, 35);
     border-right: 10px dotted rgb(34, 162, 34);
     animation: spin 2s linear infinite;
+}
+
+.scoreDiv {
+    height: 200px;
+    width: 200px;
+    align-content: center;
+    justify-items: center;
+    display: none;
+    line-height: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 @keyframes spin {
