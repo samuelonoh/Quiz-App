@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz App</title>
 </head>
 <body>
-    
+    <main>
+<div class="bg"></div>
+        <div class="content">
+            <div class="cont">
+                <div class="loader"></div>
+                <div class="quiz">
+                    <div class="quiz-text"><h1>Quiz</h1></div>
+                    <hr>
+                    <h2 id="questions"></h2>
+                    <div class="options">
+                        <button class="answer button" id="option1"><h4></h4></button>
+                        <button class="answer button" id="option2"><h4></h4></button>
+                        <button class="answer button" id="option3"><h4></h4></button>
+                        <button class="answer button" id="option4"><h4></h4></button>
+                    </div>
+                    <hr>
+                    <p id="progress">questions 1 0f 10</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>
