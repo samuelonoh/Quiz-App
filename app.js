@@ -9,6 +9,9 @@ let buttons = document.querySelectorAll('.button');
 let progress = document.getElementById("progress");
 let score = document.getElementById("score");
 let scoreDiv = document.querySelector(".scoreDiv");
+let right = document.getElementById("right");
+let wrong = document.getElementById("wrong");
+let endGame = document.getElementById("endGame");
 
 let api =
 "https://opentdb.com/api.php?amount=50&category=9&difficulty=medium&type=multiple";
@@ -47,6 +50,7 @@ fetch(api)
             if (button.innerText === arr[nextQuestion].answer) {
                 button.style.backgroundColor = "green";
                 button.style.color = "white";
+                right.play();
                 answerCount++;
                 setTimeout(() => {
                     button.style.backgroundColor = "#57636f";
@@ -55,6 +59,7 @@ fetch(api)
             }else {
                     button.style.backgroundColor = "red";
                 button.style.color = "black";
+                wrong.play()
                 setTimeout(() => {
                     button.style.backgroundColor = "#57636f";
                 button.style.color = "#ffffff";
@@ -75,6 +80,7 @@ fetch(api)
                     qui.style.display = "none";
                     scoreDiv.style.display = "grid";
                     score.innerText = `${answerCount}/10`;
+                    endGame.play()
                 }
             }, 2000);
         };
