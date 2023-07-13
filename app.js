@@ -78,10 +78,15 @@ fetch(api)
             setTimeout(() => {
                 if (nextQuestion === 9) {
                     qui.style.display = "none";
-                    scoreDiv.style.display = "grid";
+                    loader.style.display = "flex";
+                    
+                    setTimeout(() => {
+                        loader.style.display = "none";
+                        scoreDiv.style.display = "grid";
+                        endGame.play()
                     score.innerText = `${answerCount}/10`;
-                    endGame.play()
-                }
+                    }, 2000);
+                } 
             }, 2000);
         };
     }
